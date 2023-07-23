@@ -65,6 +65,10 @@ class TracingForm():
        house_number_street_village = Entry(self.user_information_window)
        house_number_street_village.grid(row=3, column=2)
 
+       barangay = Label(self.user_information_window, text="Barangay:")
+       barangay.grid(row=3, column=3, padx=5, pady=10)
+       barangay = Entry(self.user_information_window)
+       barangay.grid(row=3, column=4)
 #Get contact number
 #Get email address
 
