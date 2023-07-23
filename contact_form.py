@@ -12,6 +12,7 @@ class TracingForm():
       self.name()
       self.age()
       self.sex()
+      self.address()
 
       self.user_information_window.mainloop()
     #Get name
@@ -54,8 +55,16 @@ class TracingForm():
        inter_sex = Radiobutton(self.user_information_window, variable=radio, text="intersex", value=3)
        inter_sex.grid(row=2, column=3)
 
+    #Get address
+    def address(self):
+       address = Label(self.user_information_window, text="Address:")
+       address.grid(row=3, column=0, padx=5, pady=10)
 
-#Get address
+       house_number_street_village = Label(self.user_information_window, text="House No./Street/Village:")
+       house_number_street_village.grid(row=3, column=1, padx=5, pady=10)
+       house_number_street_village = Entry(self.user_information_window)
+       house_number_street_village.grid(row=3, column=2)
+
 #Get contact number
 #Get email address
 
