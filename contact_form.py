@@ -10,6 +10,7 @@ class TracingForm():
       self.user_information_window.geometry("1000x400")
 
       self.name()
+      self.age()
 
       self.user_information_window.mainloop()
     #Get name
@@ -30,7 +31,12 @@ class TracingForm():
       entry_last_name.grid(row=0, column=5)
       
     
-         
+    #Get age 
+    def age(self):
+       age = Label(self.user_information_window, text="Age (yrs. old):")
+       age.grid(row=1, column=0, padx=5, pady=10)
+       entry_age = Entry(self.user_information_window)
+       entry_age.grid(row=1, column=1)
         
 
 
