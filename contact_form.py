@@ -69,6 +69,11 @@ class TracingForm():
        barangay.grid(row=3, column=3, padx=5, pady=10)
        barangay = Entry(self.user_information_window)
        barangay.grid(row=3, column=4)
+
+       city = Label(self.user_information_window, text="City:")
+       city.grid(row=3, column=5, padx=5, pady=10)
+       city = Entry(self.user_information_window)
+       city.grid(row=3, column=6)
 #Get contact number
 #Get email address
 
