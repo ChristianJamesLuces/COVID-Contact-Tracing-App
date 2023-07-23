@@ -2,6 +2,7 @@
 
 #Import necessary modules
 from tkinter import *
+from contact_form import TracingForm
 
 
 
@@ -32,34 +33,25 @@ class UserInterface:
         main_window.geometry("1250x400")
         
 
-        label = Label(self.window, text = "Welcome to CoviCompanion", fg="black", font=("Arial", 15, "bold"))
-        label.place (x=80, y=20)
+        label = Label(main_window, text = "Welcome to CoviCompanion", fg="black", font=("Arial", 15, "bold"))
+        label.place(x=80, y=20)
+
+        self.contact_form(main_window)
 
         main_window.mainloop()
+
     #Create a Contact Form button
+    def contact_form(self, main_window):
+        tracing_form = TracingForm()
+        contact_button = Button(main_window, text="Contact Form", fg="blue", command=tracing_form.user_information, font=("Times", 14) )
+        contact_button.place(x=80, y=120)
 
-      
-    #Saving User's Information Label
-    #Get name
-#Get age
-#Get sex
-#Get address
-#Get contact number
-#Get email address
 
-#Saving User's Emergency Information Label
-#Get name of guardian
-#Get contact number of guardian
-#Get email address of guardian
 
-#User's Health Declaration Label
-#Get vaccine status
-#Get symptoms
-#Get COVID test result
-#Get travel history
+    #Ask for User's consent
 
-#Show introduction
-#Ask for User's consent
+
+
 
 app = UserInterface()
 app.introduction()
