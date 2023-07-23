@@ -51,6 +51,9 @@ class TracingForm():
        female_sex = Radiobutton(self.user_information_window, variable=radio, text="female", value=2)
        female_sex.grid(row=2, column=2)
 
+       inter_sex = Radiobutton(self.user_information_window, variable=radio, text="intersex", value=3)
+       inter_sex.grid(row=2, column=3)
+
 
 #Get address
 #Get contact number
