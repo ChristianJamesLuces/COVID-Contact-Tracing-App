@@ -11,6 +11,7 @@ class TracingForm():
 
       self.name()
       self.age()
+      self.sex()
 
       self.user_information_window.mainloop()
     #Get name
@@ -37,13 +38,15 @@ class TracingForm():
        age.grid(row=1, column=0, padx=5, pady=10)
        entry_age = Entry(self.user_information_window)
        entry_age.grid(row=1, column=1)
-        
+    
+    #Get sex
+    def sex(self):
+       sex = Label(self.user_information_window, text="Sex:")
+       sex.grid(row=2, column=0, padx=5, pady=10)
 
-
-
-
-#Get age
-#Get sex
+       radio = IntVar()
+       male_sex = Radiobutton(self.user_information_window,variable=radio, text="male")
+       male_sex.grid(row=2, column=1)
 #Get address
 #Get contact number
 #Get email address
