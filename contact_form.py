@@ -145,8 +145,8 @@ class TracingForm():
       covid_result.grid(row=9, column=0, padx=5, pady=10)
 
       radio = IntVar()
-      no = Radiobutton(self.user_information_window,variable=radio, text="No", value=1)
-      no.grid(row=9, column=1)
+      no_result = Radiobutton(self.user_information_window,variable=radio, text="No", value=1)
+      no_result.grid(row=9, column=1)
       
       
       yes_positive = Radiobutton(self.user_information_window, variable=radio, text="Yes-Positive", value=2)
@@ -160,6 +160,17 @@ class TracingForm():
       yes_pending = Radiobutton(self.user_information_window, variable=radio, text="Yes-Pending", value=4)
       yes_pending.grid(row=9, column=4)
 
+      #Get if the user has close contact
+      close_contact = Label(self.user_information_window, text="Exposed to COVID-19 in the last 14 days?", font=("Arial", 9, "bold"))
+      close_contact.grid(row=10, column=0, padx=5, pady=10)
+
+      radio = IntVar()
+      no = Radiobutton(self.user_information_window,variable=radio, text="No", value=1)
+      no.grid(row=10, column=1)
+      
+      
+      yes = Radiobutton(self.user_information_window, variable=radio, text="Yes", value=2)
+      yes.grid(row=10, column=2)
 
       self.user_information_window.mainloop()
 
