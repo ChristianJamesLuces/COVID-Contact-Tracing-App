@@ -44,9 +44,14 @@ class TracingForm():
        sex = Label(self.user_information_window, text="Sex:")
        sex.grid(row=2, column=0, padx=5, pady=10)
 
-       radio = IntVar()
-       male_sex = Radiobutton(self.user_information_window,variable=radio, text="male")
+       radio = IntVar(None)
+       male_sex = Radiobutton(self.user_information_window,variable=radio, text="male", value=1)
        male_sex.grid(row=2, column=1)
+
+       female_sex = Radiobutton(self.user_information_window, variable=radio, text="female", value=2)
+       female_sex.grid(row=2, column=2)
+
+
 #Get address
 #Get contact number
 #Get email address
