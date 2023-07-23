@@ -7,21 +7,35 @@ from tkinter import *
 
 #Create class
 class UserInterface:
-    def __init__(self):
+    #Show introduction
+    def introduction(self):
         self.window = Tk()
-        self.main_window()
-        
+        self.window.title("Introduction - CoviCompanion")
+        self.window.geometry("800x400")
+
+        with open("introduction.txt", "r") as file:
+            introduction_text = file.read()
+
+            introduction_label = Label(self.window, text=introduction_text, fg="black", font=("Arial", 12))
+            introduction_label.pack()
+
+            proceed_button = Button(self.window, text="Proceed to Main Window", command=self.main_window)
+            proceed_button.pack()
+
         self.window.mainloop()
     #Create a main window
     def main_window(self):
-        self.window.title("Covid Tracing App")
-        self.window.geometry("1250x400")
+        self.window.destroy()
+
+        main_window = Tk()
+        main_window.title("Covid Tracing App")
+        main_window.geometry("1250x400")
         
 
-        label = Label(self.window, text = "Welcome to COVID Contact Tracing App", fg="black", font=("Arial", 15, "bold"))
-        label.place (x=780, y=20)
+        label = Label(self.window, text = "Welcome to CoviCompanion", fg="black", font=("Arial", 15, "bold"))
+        label.place (x=80, y=20)
 
-
+        main_window.mainloop()
     #Create a Contact Form button
 
       
@@ -47,3 +61,5 @@ class UserInterface:
 #Show introduction
 #Ask for User's consent
 
+app = UserInterface()
+app.introduction()
