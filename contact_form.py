@@ -70,9 +70,17 @@ class TracingForm():
       contact_number = Entry(self.user_information_window)
       contact_number.grid(row=4, column=1)
       
+      #Get email address
+      email = Label(self.user_information_window, text="Email Address:")
+      email.grid(row=5, column=0, padx=5, pady=10)
+      email = Entry(self.user_information_window)
+      email.grid(row=5, column=1)
+
+
+
       self.user_information_window.mainloop()
-    
-#Get email address
+
+      
 
 #Saving User's Emergency Information Label
 #Get name of guardian
