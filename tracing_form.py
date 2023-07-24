@@ -16,6 +16,7 @@ class TracingForm():
         self.contact_number()
         self.email_adress()
         self.last_place()
+        self.last_date()
 
     #Get name
     def name(self):
@@ -102,6 +103,24 @@ class TracingForm():
         self.last_city.grid(row=6, column=5, padx=5, pady=10)
         self.entry_last_city = tk.Entry(self.user_information_window)
         self.entry_last_city.grid(row=6, column=6)
-    
-    
+
+    #Get date for that last place visited
+    def last_date(self):
+        self.date = tk.Label(self.user_information_window, text="Date of visit:", font=("Arial", 9, "bold"), bg="#ECDADD")
+        self.date.grid(row=7, column=0, padx=5, pady=10)
+        
+        self.month = tk.Label(self.user_information_window, text="Month:", bg="#ECDADD")
+        self.month.grid(row=7, column=1, padx=5, pady=10)
+        self.entry_month = tk.Spinbox(self.user_information_window, from_=0, to=12)
+        self.entry_month.grid(row=7, column=2, padx=5, pady=10)
+        
+        self.day = tk.Label(self.user_information_window, text="Day:", bg="#ECDADD")
+        self.day.grid(row=7, column=3, padx=5, pady=10)
+        self.entry_day = tk.Spinbox(self.user_information_window, from_=0, to=31)
+        self.entry_day.grid(row=7, column=4, padx=5, pady=10)
+        
+        self.year = tk.Label(self.user_information_window, text="Year:", bg="#ECDADD")
+        self.year.grid(row=7, column=5, padx=5, pady=10)
+        self.entry_year= tk.Spinbox(self.user_information_window, from_=2019, to=2023)
+        self.entry_year.grid(row=7, column=6, padx=5, pady=10)
         
