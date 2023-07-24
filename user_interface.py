@@ -39,8 +39,6 @@ class UserInterface:
         self.contact_form(main_window)
 
         main_window.mainloop()
-    
-    #Ask for User's consent
 
     #Create a Contact Form button
     def contact_form(self, main_window):
