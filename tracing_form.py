@@ -18,6 +18,7 @@ class TracingForm():
         self.last_place()
         self.last_date()
         self.vaccine_status()
+        self.test_result()
 
     #Get name
     def name(self):
@@ -80,15 +81,15 @@ class TracingForm():
 
     #Get email adress
     def email_adress(self):
-        self.email = tk.Label(self.user_information_window, text="Email Address:", font=("Arial", 9, "bold"), bg="#ECDADD")
-        self.email.grid(row=5, column=0, padx=5, pady=10)
+        self.email_label = tk.Label(self.user_information_window, text="Email Address:", font=("Arial", 9, "bold"), bg="#ECDADD")
+        self.email_label.grid(row=5, column=0, padx=5, pady=10)
         self.entry_email = tk.Entry(self.user_information_window)
         self.entry_email.grid(row=5, column=1)
     
     #Get last location
     def last_place(self):
-        self.location = tk.Label(self.user_information_window, text="Last Visited Place:", font=("Arial", 9, "bold"), bg="#ECDADD")
-        self.location.grid(row=6, column=0, padx=5, pady=10)
+        self.location_label = tk.Label(self.user_information_window, text="Last Visited Place:", font=("Arial", 9, "bold"), bg="#ECDADD")
+        self.location_label.grid(row=6, column=0, padx=5, pady=10)
         
         self.last_house_number_street_village = tk.Label(self.user_information_window, text="House No./Street/Village:", bg="#ECDADD")
         self.last_house_number_street_village.grid(row=6, column=1, padx=5, pady=10)
@@ -107,8 +108,8 @@ class TracingForm():
 
     #Get date for that last place visited
     def last_date(self):
-        self.date = tk.Label(self.user_information_window, text="Date of visit:", font=("Arial", 9, "bold"), bg="#ECDADD")
-        self.date.grid(row=7, column=0, padx=5, pady=10)
+        self.date_label = tk.Label(self.user_information_window, text="Date of visit:", font=("Arial", 9, "bold"), bg="#ECDADD")
+        self.date_label.grid(row=7, column=0, padx=5, pady=10)
         
         self.month = tk.Label(self.user_information_window, text="Month:", bg="#ECDADD")
         self.month.grid(row=7, column=1, padx=5, pady=10)
@@ -132,4 +133,13 @@ class TracingForm():
 
         self.vaccine_box = ttk.Combobox(self.user_information_window, values= ["Not Yet", "1st Dose", "2nd Dose", "1st Booster Shot", "2nd Booster Shot"])
         self.vaccine_box.grid(row=8, column=1, padx=5, pady=10)
+    
+    #Get COVID-19 test result
+    def test_result(self):
+        self.covid_result_label = tk.Label(self.user_information_window, text="COVID-19 Test Result:", font=("Arial", 9, "bold"), bg="#ECDADD")
+        self.covid_result_label.grid(row=9, column=0, padx=5, pady=10)
+
+        self.covid_box = ttk.Combobox(self.user_information_window, values=["No", "Yes-Positive", "Yes-Negative", "Yes-Pending"])
+        self.covid_box.grid(row=9, column=1, padx=5, pady=10)
+
         
