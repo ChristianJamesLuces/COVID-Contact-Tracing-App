@@ -1,6 +1,12 @@
+
+#Import necessary modules
 import tkinter as tk
 from tkinter import ttk
+from tkinter import messagebox
+import csv
 
+
+#Create a contact form/ tracing form class
 class TracingForm():
     def user_information(self):
         self.user_information_window = tk.Tk()
@@ -9,24 +15,8 @@ class TracingForm():
         self.user_information_window.config(bg="#ECDADD")
         self.user_information_window.resizable(False,False)
 
-        self.name()
-        self.age()
-        self.sex()
-        self.address()
-        self.contact_number()
-        self.email_adress()
-        self.last_place()
-        self.last_date()
-        self.vaccine_status()
-        self.test_result()
-        self.close_contact()
-        self.symptoms()
-        self.emergency_name()
-        self.emergency_number()
-        self.emergency_email()
-
     #Get name
-    def name(self):
+    
         self.first_name = tk.Label(self.user_information_window, text="First Name: ", font=("Arial", 9, "bold"), bg="#ECDADD")
         self.first_name.grid(row=0, column=0, padx=5, pady=10)
         self.entry_first_name = tk.Entry(self.user_information_window)
@@ -43,14 +33,14 @@ class TracingForm():
         self.entry_last_name.grid(row=0, column=5)
     
     #Get age 
-    def age(self):
+    
         self.age_label = tk.Label(self.user_information_window, text="Age (yrs. old):", font=("Arial", 9, "bold"), bg="#ECDADD")
         self.age_label.grid(row=1, column=0, padx=5, pady=10)
         self.entry_age = tk.Entry(self.user_information_window)
         self.entry_age.grid(row=1, column=1)
     
     #Get sex
-    def sex(self):
+    
         self.sex_label = tk.Label(self.user_information_window, text="Sex:", font=("Arial", 9, "bold"), bg="#ECDADD")
         self.sex_label.grid(row=2, column=0, padx=5, pady=10)
         
@@ -58,7 +48,7 @@ class TracingForm():
         self.sex_box.grid(row=2, column=1, padx=5, pady=10)
     
     #Get adress
-    def address(self):
+    
         self.address_label = tk.Label(self.user_information_window, text="Address:", font=("Arial", 9, "bold"), bg="#ECDADD")
         self.address_label.grid(row=3, column=0, padx=5, pady=10)
         
@@ -78,21 +68,21 @@ class TracingForm():
         self.entry_city.grid(row=3, column=6)
 
     #Get contact number
-    def contact_number(self):
+    
         self.contact_number_label = tk.Label(self.user_information_window, text="Contact No. (ex.09...):", font=("Arial", 9, "bold"), bg="#ECDADD")
         self.contact_number_label.grid(row=4, column=0, padx=5, pady=10)
         self.entry_contact_number = tk.Entry(self.user_information_window)
         self.entry_contact_number.grid(row=4, column=1)
 
     #Get email adress
-    def email_adress(self):
+    
         self.email_label = tk.Label(self.user_information_window, text="Email Address:", font=("Arial", 9, "bold"), bg="#ECDADD")
         self.email_label.grid(row=5, column=0, padx=5, pady=10)
         self.entry_email = tk.Entry(self.user_information_window)
         self.entry_email.grid(row=5, column=1)
     
     #Get last location
-    def last_place(self):
+    
         self.location_label = tk.Label(self.user_information_window, text="Last Visited Place:", font=("Arial", 9, "bold"), bg="#ECDADD")
         self.location_label.grid(row=6, column=0, padx=5, pady=10)
         
@@ -112,7 +102,7 @@ class TracingForm():
         self.entry_last_city.grid(row=6, column=6)
 
     #Get date for that last place visited
-    def last_date(self):
+    
         self.date_label = tk.Label(self.user_information_window, text="Date of visit:", font=("Arial", 9, "bold"), bg="#ECDADD")
         self.date_label.grid(row=7, column=0, padx=5, pady=10)
         
@@ -132,7 +122,7 @@ class TracingForm():
         self.entry_year.grid(row=7, column=6, padx=5, pady=10)
     
     #Get vaccine status
-    def vaccine_status(self):
+    
         self.vaccine_status_label = tk.Label(self.user_information_window, text="COVID-19 Vaccination Status:", font=("Arial", 9, "bold"), bg="#ECDADD")
         self.vaccine_status_label.grid(row=8, column=0, padx=5, pady=10)
 
@@ -140,7 +130,7 @@ class TracingForm():
         self.vaccine_box.grid(row=8, column=1, padx=5, pady=10)
     
     #Get COVID-19 test result
-    def test_result(self):
+    
         self.covid_result_label = tk.Label(self.user_information_window, text="COVID-19 Test Result:", font=("Arial", 9, "bold"), bg="#ECDADD")
         self.covid_result_label.grid(row=9, column=0, padx=5, pady=10)
 
@@ -148,7 +138,7 @@ class TracingForm():
         self.covid_box.grid(row=9, column=1, padx=5, pady=10)
     
     #Get if the user has close contact
-    def close_contact(self):
+    
         self.close_contact_label = tk.Label(self.user_information_window, text="Exposed to COVID-19 in the last 14 days?", font=("Arial", 9, "bold"), bg="#ECDADD")
         self.close_contact_label.grid(row=10, column=0, padx=5, pady=10)
 
@@ -156,7 +146,7 @@ class TracingForm():
         self.close_contact_box.grid(row=10, column=1, padx=5, pady=10)
 
     #Get symptoms
-    def symptoms(self):
+    
         self.symptoms_label = tk.Label(self.user_information_window, text="Experiencing symptoms in the past 7 days?", font=("Arial", 9, "bold"), bg="#ECDADD")
         self.symptoms_label.grid(row=11, column=0, padx=5, pady=10)
         
@@ -205,7 +195,7 @@ class TracingForm():
         self.none_of_the_above.grid(row=12, column=5)
     
     #Get name of emergency contact
-    def emergency_name(self):
+    
         self.emergency_name_label = tk.Label(self.user_information_window, text="Emergency Contact's Name: ", font=("Arial", 9, "bold"), bg="#ECDADD")
         self.emergency_name_label.grid(row=13, column=0, padx=5, pady=10)
         self.entry_emergency_name = tk.Entry(self.user_information_window)
@@ -214,19 +204,89 @@ class TracingForm():
         self.contact_name.grid(row=13, column=2, padx=5, pady=10)
     
     #Get contact number of emergency contact
-    def emergency_number(self):
+  
         self.emergency_number_label = tk.Label(self.user_information_window, text="Emergency Contact Phone Number (09...): ", font=("Arial", 9, "bold"), bg="#ECDADD")
         self.emergency_number_label.grid(row=14, column=0, padx=5, pady=10)
         self.entry_emergency_number = tk.Entry(self.user_information_window)
         self.entry_emergency_number.grid(row=14, column=1)
 
     #Get email address of emergency contact
-    def emergency_email(self):
+    
         self.emergency_email_label = tk.Label(self.user_information_window, text="Emergency Contact Email Address: ", font=("Arial", 9, "bold"), bg="#ECDADD")
         self.emergency_email_label.grid(row=15, column=0, padx=5, pady=10)
         self.entry_emergency_email = tk.Entry(self.user_information_window)
         self.entry_emergency_email.grid(row=15, column=1)
 
+    
+        self.submit_button = tk.Button(self.user_information_window, text="Submit", fg="green", font=("Time", 11, "bold"), command=self.submit_contacts)
+        self.submit_button.place(x=1150, y=600)
+
+    #Saving the user's data
+    def submit_contacts(self):
+        first_name = self.entry_first_name.get()
+        second_name = self.entry_second_name.get()
+        last_name =  self.entry_last_name.get()
+        age = self.entry_age.get()
+        sex = self.sex_box.get
+        address = {
+            "House_No_Street_Village": self.entry_house_number_street_village.get(),
+            "Barangay": self.entry_barangay.get(),
+            "City/Town": self.entry_city.get(),
+        }
+        contact_number = self.entry_contact_number.get()
+        email = self.entry_email.get()
+        visited_recently = {
+            "House_No_Street_Village": self.entry_last_house_number_street_village.get(),
+            "Barangay": self.entry_last_barangay.get(),
+            "City": self.entry_last_city.get(),
+            "Date": f"{self.entry_month.get()}/{self.entry_day.get()}/{self.entry_year.get()}",
+        }
+        vaccine_status = self.vaccine_box.get()
+        test_result = self.covid_box.get()
+        close_contact = self.close_contact_box.get()
+        symptoms_value = {
+            "Fever": self.fever_check.get(),
+            "Cough": self.cough_check.get(),
+            "Muscle/body pains": self.muscle_check.get(),
+            "Soar throat": self.sore_check.get(),
+            "Diarrhea": self.diarrhea_check.get(),
+            "Headache": self.headache_check.get(),
+            "Shortness of breath": self.shortness_breath_check.get(),
+            "Difficulty of breathing": self.difficulty_breath_check.get(),
+            "Loss of taste": self.taste_check.get(),
+            "Loss of smell": self.smell_check.get(),
+            "None of the above": self.none_check.get(),
+        }
+
+        emergency_name =  self.entry_emergency_name.get()
+        emergency_number =  self.entry_emergency_number.get()
+        emergency_email = self.entry_emergency_email.get()
+
+        # Check if any required fields are empty
+        required_fields = [first_name, last_name, age, sex, address["House_No_Street_Village"],
+                           address["Barangay"], address["City/Town"], contact_number, email,
+                           emergency_name, emergency_number, emergency_email]
+        
+        has_empty_fields = any(not field for field in required_fields)
+
+        if has_empty_fields:
+            messagebox.showerror("Error", "Please fill in all the required information.")
+        else:
+            # Create a single line of data in CSV format
+            contact_data = f"Name: {last_name}, {first_name}, {second_name} Gender: {sex} Age: {age} " \
+                        f"Address: {address['House_No_Street_Village']}, {address['Barangay']}, {address['City/Town']} " \
+                        f"Phone Number: {contact_number} Email: {email} " \
+                        f"Contact Person: {emergency_name} Phone Number: {emergency_number} " \
+                        f"Email: {emergency_email} " \
+                        f"Vaccination Status: {vaccine_status} Symptoms: {', '.join(symptoms_value[key] for key in symptoms_value if symptoms_value[key])} " \
+                        f"Exposed to a probable case: {close_contact} Has Contact (to a probable case): {test_result}"
+            
+            # Save data to a CSV file
+            with open("user_database.csv", mode="a", newline="", encoding="utf-8") as file:
+                writer = csv.writer(file)
+                writer.writerow([contact_data])
+
+            messagebox.showinfo("Success", "Contact information saved successfully.")
 
 
 
