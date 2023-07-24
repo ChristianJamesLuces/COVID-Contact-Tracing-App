@@ -19,6 +19,7 @@ class TracingForm():
         self.last_date()
         self.vaccine_status()
         self.test_result()
+        self.close_contact()
 
     #Get name
     def name(self):
@@ -141,5 +142,14 @@ class TracingForm():
 
         self.covid_box = ttk.Combobox(self.user_information_window, values=["No", "Yes-Positive", "Yes-Negative", "Yes-Pending"])
         self.covid_box.grid(row=9, column=1, padx=5, pady=10)
+    
+    #Get if the user has close contact
+    def close_contact(self):
+        self.close_contact_label = tk.Label(self.user_information_window, text="Exposed to COVID-19 in the last 14 days?", font=("Arial", 9, "bold"), bg="#ECDADD")
+        self.close_contact_label.grid(row=10, column=0, padx=5, pady=10)
+
+        self.close_contact_box = ttk.Combobox(self.user_information_window, values=["No", "Yes"])
+        self.close_contact_box.grid(row=10, column=1, padx=5, pady=10)
+
 
         
