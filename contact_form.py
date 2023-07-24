@@ -1,4 +1,5 @@
 #Import necessary modules
+import os
 from tkinter import *
 from tkinter import messagebox
 
@@ -159,57 +160,57 @@ class TracingForm():
         self.close_contact.grid(row=10, column=0, padx=5, pady=10)
         
         self.close_radio = StringVar()
-        self.no = Radiobutton(self.user_information_window,variable=self.close_radio, text="No", value=1, bg="#ECDADD")
+        self.no = Radiobutton(self.user_information_window,variable=self.close_radio, text="No", onvalue="Yes", offvalue="No", bg="#ECDADD")
         self.no.grid(row=10, column=1)
         
-        self.yes = Radiobutton(self.user_information_window, variable=self.close_radio, text="Yes", value=2, bg="#ECDADD")
+        self.yes = Radiobutton(self.user_information_window, variable=self.close_radio, text="Yes", onvalue="Yes", offvalue="No", bg="#ECDADD")
         self.yes.grid(row=10, column=2)
         
         #Get symptoms
         self.symptoms = Label(self.user_information_window, text="Experiencing symptoms in the past 7 days?", font=("Arial", 9, "bold"), bg="#ECDADD")
         self.symptoms.grid(row=11, column=0, padx=5, pady=10)
         
-        self.fever_check = StringVar()
+        self.fever_check = StringVar(value="No")
         self.fever = Checkbutton(self.user_information_window, text="Fever", variable=self.fever_check, onvalue="Yes", offvalue="No", bg="#ECDADD")
         self.fever.grid(row=11, column=1)
         
-        self.cough_check = StringVar()
+        self.cough_check = StringVar(value="No")
         self.cough = Checkbutton(self.user_information_window, text="Cough", variable=self.cough_check, onvalue="Yes", offvalue="No", bg="#ECDADD")
         self.cough.grid(row=11, column=2)
         
-        self.muscle_check = StringVar()
+        self.muscle_check = StringVar(value="No")
         self.muscle_body_pains = Checkbutton(self.user_information_window, text="Muscle/body pains", variable=self.muscle_check, onvalue="Yes", offvalue="No", bg="#ECDADD")
         self.muscle_body_pains.grid(row=11, column=3)
         
-        self.sore_check = StringVar()
+        self.sore_check = StringVar(value="No")
         self.sore_throat = Checkbutton(self.user_information_window, text="Soar throat", variable=self.sore_check, onvalue="Yes", offvalue="No", bg="#ECDADD")
         self.sore_throat.grid(row=11, column=4)
         
-        self.diarrhea_check = StringVar()
+        self.diarrhea_check = StringVar(value="No")
         self.diarrhea = Checkbutton(self.user_information_window, text="Diarrhea", variable=self.diarrhea_check, onvalue="Yes", offvalue="No", bg="#ECDADD")
         self.diarrhea.grid(row=11, column=5)
         
-        self.headache_check = StringVar()
+        self.headache_check = StringVar(value="No")
         self.headache = Checkbutton(self.user_information_window, text="Headache", variable=self.headache_check, onvalue="Yes", offvalue="No", bg="#ECDADD")
         self.headache.grid(row=11, column=6)
         
-        self.shortness_breath_check = StringVar()
+        self.shortness_breath_check = StringVar(value="No")
         self.shortness_of_breath = Checkbutton(self.user_information_window, text="Shortness of breath", variable=self.shortness_breath_check, onvalue="Yes", offvalue="No", bg="#ECDADD")
         self.shortness_of_breath.grid(row=12, column=1)
         
-        self.difficulty_breath_check = StringVar()
+        self.difficulty_breath_check = StringVar(value="No")
         self.difficulty_of_breathing = Checkbutton(self.user_information_window, text="Difficulty of breathing", variable=self.difficulty_breath_check, onvalue="Yes", offvalue="No", bg="#ECDADD")
         self.difficulty_of_breathing.grid(row=12, column=2)
         
-        self.taste_check = StringVar()
+        self.taste_check = StringVar(value="No")
         self.loss_of_taste = Checkbutton(self.user_information_window, text="Loss of taste", variable=self.taste_check, onvalue="Yes", offvalue="No", bg="#ECDADD")
         self.loss_of_taste.grid(row=12, column=3)
         
-        self.smell_check = StringVar()
+        self.smell_check = StringVar(value="No")
         self.loss_of_smell = Checkbutton(self.user_information_window, text="Loss of smell", variable=self.smell_check, onvalue="Yes", offvalue="No", bg="#ECDADD")
         self.loss_of_smell.grid(row=12, column=4)
         
-        self.none_check = StringVar()
+        self.none_check = StringVar(value="No")
         self.none_of_the_above = Checkbutton(self.user_information_window, text="None of the above", variable=self.none_check, onvalue="Yes", offvalue="No", bg="#ECDADD")
         self.none_of_the_above.grid(row=12, column=5)
         
@@ -259,7 +260,17 @@ class TracingForm():
         close_contact = self.close_radio.get()
        
         symptoms_value = {
-            "Fever": self.
+            "Fever": self.fever_check.get(),
+            "Cough": self.cough_check.get(),
+            "Muscle/body pains": self.muscle_check.get(),
+            "Soar throat": self.sore_check.get(),
+            "Diarrhea": self.diarrhea_check.get(),
+            "Headache": self.headache_check.get(),
+            "Shortness of breath": self.shortness_breath_check.get(),
+            "Difficulty of breathing": self.difficulty_breath_check.get(),
+            "Loss of taste": self.taste_check.get(),
+            "Loss of smell": self.smell_check.get(),
+            "None of the above": self.none_check.get(),
         }
         
 
@@ -282,11 +293,38 @@ class TracingForm():
             "Vaccine_Status": vaccine_status,
             "COVID_Result": covid_result,
             "Close_Contact": close_contact,
-            "Symptoms": symptoms_selected,
+            "Symptoms": symptoms_value,
             "Emergency_Contact": emergency_contact
             }
-      
-
+        
+        #Check if all fields are filled
+        if (first_name
+            and second_name
+            and last_name
+            and age
+            and sex
+            and all(address.values())
+            and contact_number
+            and email
+            and all(last_location.values())
+            and vaccine_status
+            and covid_result
+            and close_contact
+            and all(symptoms_value.values())
+            and all(emergency_contact.values())
+            ):
+            
+            #Save the contact data to the a file
+            with open("user_database.txt", "a") as file:
+                user_info = ",".join(contact_data.values())
+                file.write(user_info + "\n")
+            
+            #Display a message if it's a successfull submission
+            messagebox.showinfo("Success", "Contact data submitted successfully!")
+        
+        else:
+            #Display a message if there is missing information
+            messagebox.showwarning("Incomplete Information", "Please fill in all the fields before submitting.")
       
 
 
