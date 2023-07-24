@@ -211,6 +211,18 @@ class TracingForm():
 
 
       #Get name of emergency contact
+      emergency_name = Label(self.user_information_window, text="Emergency Contact's Name: ", font=("Arial", 9, "bold"))
+      emergency_name.grid(row=13, column=0, padx=5, pady=10)
+      entry_emergency_name = Entry(self.user_information_window)
+      entry_emergency_name.grid(row=13, column=1)
+      contact_name = Label(self.user_information_window, text="(First Name/Second Name/Last Name)")
+      contact_name.grid(row=13, column=2, padx=5, pady=10)
+
+      #Get contact number of emergency contact
+      emergency_number = Label(self.user_information_window, text="Emergency Contact Phone Number: ", font=("Arial", 9, "bold"))
+      emergency_number.grid(row=14, column=0, padx=5, pady=10)
+      entry_emergency_number = Entry(self.user_information_window)
+      entry_emergency_number.grid(row=14, column=1)
 
 
       self.user_information_window.mainloop()
