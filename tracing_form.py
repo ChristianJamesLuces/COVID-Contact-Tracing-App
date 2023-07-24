@@ -17,6 +17,7 @@ class TracingForm():
         self.email_adress()
         self.last_place()
         self.last_date()
+        self.vaccine_status()
 
     #Get name
     def name(self):
@@ -123,4 +124,12 @@ class TracingForm():
         self.year.grid(row=7, column=5, padx=5, pady=10)
         self.entry_year= tk.Spinbox(self.user_information_window, from_=2019, to=2023)
         self.entry_year.grid(row=7, column=6, padx=5, pady=10)
+    
+    #Get vaccine status
+    def vaccine_status(self):
+        self.vaccine_status_label = tk.Label(self.user_information_window, text="COVID-19 Vaccination Status:", font=("Arial", 9, "bold"), bg="#ECDADD")
+        self.vaccine_status_label.grid(row=8, column=0, padx=5, pady=10)
+
+        self.vaccine_box = ttk.Combobox(self.user_information_window, values= ["Not Yet", "1st Dose", "2nd Dose", "1st Booster Shot", "2nd Booster Shot"])
+        self.vaccine_box.grid(row=8, column=1, padx=5, pady=10)
         
