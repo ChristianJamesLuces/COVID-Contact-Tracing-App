@@ -20,6 +20,7 @@ class TracingForm():
         self.vaccine_status()
         self.test_result()
         self.close_contact()
+        self.symptoms()
 
     #Get name
     def name(self):
@@ -150,6 +151,55 @@ class TracingForm():
 
         self.close_contact_box = ttk.Combobox(self.user_information_window, values=["No", "Yes"])
         self.close_contact_box.grid(row=10, column=1, padx=5, pady=10)
+
+    #Get symptoms
+    def symptoms(self):
+        self.symptoms_label = tk.Label(self.user_information_window, text="Experiencing symptoms in the past 7 days?", font=("Arial", 9, "bold"), bg="#ECDADD")
+        self.symptoms_label.grid(row=11, column=0, padx=5, pady=10)
+        
+        self.fever_check = tk.StringVar()
+        self.fever = tk.Checkbutton(self.user_information_window, text="Fever", variable=self.fever_check, onvalue="Yes", offvalue="No", bg="#ECDADD")
+        self.fever.grid(row=11, column=1)
+        
+        self.cough_check = tk.StringVar()
+        self.cough = tk.Checkbutton(self.user_information_window, text="Cough", variable=self.cough_check, onvalue="Yes", offvalue="No", bg="#ECDADD")
+        self.cough.grid(row=11, column=2)
+        
+        self.muscle_check = tk.StringVar()
+        self.muscle_body_pains = tk.Checkbutton(self.user_information_window, text="Muscle/body pains", variable=self.muscle_check, onvalue="Yes", offvalue="No", bg="#ECDADD")
+        self.muscle_body_pains.grid(row=11, column=3)
+        
+        self.sore_check = tk.StringVar()
+        self.sore_throat = tk.Checkbutton(self.user_information_window, text="Soar throat", variable=self.sore_check, onvalue="Yes", offvalue="No", bg="#ECDADD")
+        self.sore_throat.grid(row=11, column=4)
+        
+        self.diarrhea_check = tk.StringVar()
+        self.diarrhea = tk.Checkbutton(self.user_information_window, text="Diarrhea", variable=self.diarrhea_check, onvalue="Yes", offvalue="No", bg="#ECDADD")
+        self.diarrhea.grid(row=11, column=5)
+        
+        self.headache_check = tk.StringVar()
+        self.headache = tk.Checkbutton(self.user_information_window, text="Headache", variable=self.headache_check, onvalue="Yes", offvalue="No", bg="#ECDADD")
+        self.headache.grid(row=11, column=6)
+        
+        self.shortness_breath_check = tk.StringVar()
+        self.shortness_of_breath = tk.Checkbutton(self.user_information_window, text="Shortness of breath", variable=self.shortness_breath_check, onvalue="Yes", offvalue="No", bg="#ECDADD")
+        self.shortness_of_breath.grid(row=12, column=1)
+        
+        self.difficulty_breath_check = tk.StringVar()
+        self.difficulty_of_breathing = tk.Checkbutton(self.user_information_window, text="Difficulty of breathing", variable=self.difficulty_breath_check, onvalue="Yes", offvalue="No", bg="#ECDADD")
+        self.difficulty_of_breathing.grid(row=12, column=2)
+        
+        self.taste_check = tk.StringVar()
+        self.loss_of_taste = tk.Checkbutton(self.user_information_window, text="Loss of taste", variable=self.taste_check, onvalue="Yes", offvalue="No", bg="#ECDADD")
+        self.loss_of_taste.grid(row=12, column=3)
+        
+        self.smell_check = tk.StringVar()
+        self.loss_of_smell = tk.Checkbutton(self.user_information_window, text="Loss of smell", variable=self.smell_check, onvalue="Yes", offvalue="No", bg="#ECDADD")
+        self.loss_of_smell.grid(row=12, column=4)
+        
+        self.none_check = tk.StringVar()
+        self.none_of_the_above = tk.Checkbutton(self.user_information_window, text="None of the above", variable=self.none_check, onvalue="Yes", offvalue="No", bg="#ECDADD")
+        self.none_of_the_above.grid(row=12, column=5)
 
 
         
