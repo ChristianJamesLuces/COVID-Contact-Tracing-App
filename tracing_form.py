@@ -23,6 +23,7 @@ class TracingForm():
         self.symptoms()
         self.emergency_name()
         self.emergency_number()
+        self.emergency_email()
 
     #Get name
     def name(self):
@@ -218,6 +219,14 @@ class TracingForm():
         self.emergency_number_label.grid(row=14, column=0, padx=5, pady=10)
         self.entry_emergency_number = tk.Entry(self.user_information_window)
         self.entry_emergency_number.grid(row=14, column=1)
+
+    #Get email address of emergency contact
+    def emergency_email(self):
+        self.emergency_email_label = tk.Label(self.user_information_window, text="Emergency Contact Email Address: ", font=("Arial", 9, "bold"), bg="#ECDADD")
+        self.emergency_email_label.grid(row=15, column=0, padx=5, pady=10)
+        self.entry_emergency_email = tk.Entry(self.user_information_window)
+        self.entry_emergency_email.grid(row=15, column=1)
+
 
 
 
