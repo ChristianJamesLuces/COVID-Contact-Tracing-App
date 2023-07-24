@@ -172,11 +172,50 @@ class TracingForm():
       yes = Radiobutton(self.user_information_window, variable=radio, text="Yes", value=2)
       yes.grid(row=10, column=2)
 
+      #Get symptoms
+      symptoms = Label(self.user_information_window, text="Experiencing symptoms in the past 7 days?", font=("Arial", 9, "bold"))
+      symptoms.grid(row=11, column=0, padx=5, pady=10)
+
+      fever = Checkbutton(self.user_information_window, text="Fever")
+      fever.grid(row=11, column=1)
+
+      cough = Checkbutton(self.user_information_window, text="Cough")
+      cough.grid(row=11, column=2)
+
+      muscle_body_pains = Checkbutton(self.user_information_window, text="Muscle/body pains")
+      muscle_body_pains.grid(row=11, column=3)
+      
+      sore_throat = Checkbutton(self.user_information_window, text="Sore throat")
+      sore_throat.grid(row=11, column=4)
+
+      diarrhea = Checkbutton(self.user_information_window, text="Diarrhea")
+      diarrhea.grid(row=11, column=5)
+
+      headache = Checkbutton(self.user_information_window, text="Headache")
+      headache.grid(row=11, column=6)
+
+      shortness_of_breath = Checkbutton(self.user_information_window, text="Shortness of breath")
+      shortness_of_breath.grid(row=12, column=1)
+
+      difficulty_of_breathing = Checkbutton(self.user_information_window, text="Difficulty of breathing")
+      difficulty_of_breathing.grid(row=12, column=2)
+
+      loss_of_taste = Checkbutton(self.user_information_window, text="Loss of taste")
+      loss_of_taste.grid(row=12, column=3)
+
+      loss_of_smell = Checkbutton(self.user_information_window, text="Loss of smell")
+      loss_of_smell.grid(row=12, column=4)
+
+      none_of_the_above = Checkbutton(self.user_information_window, text="None of the above")
+      none_of_the_above.grid(row=12, column=5)
+
+
+      #Get name of emergency contact
+
+
       self.user_information_window.mainloop()
 
       
-#Get name of guardian
-#Get contact number of guardian
-#Get email address of guardian
 
-#Get symptoms
+#Get contact number of emergency contact
+#Get email address of emergency contact
