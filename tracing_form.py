@@ -21,6 +21,7 @@ class TracingForm():
         self.test_result()
         self.close_contact()
         self.symptoms()
+        self.emergency_name()
 
     #Get name
     def name(self):
@@ -200,6 +201,16 @@ class TracingForm():
         self.none_check = tk.StringVar()
         self.none_of_the_above = tk.Checkbutton(self.user_information_window, text="None of the above", variable=self.none_check, onvalue="Yes", offvalue="No", bg="#ECDADD")
         self.none_of_the_above.grid(row=12, column=5)
+    
+    #Get name of emergency contact
+    def emergency_name(self):
+        self.emergency_name_label = tk.Label(self.user_information_window, text="Emergency Contact's Name: ", font=("Arial", 9, "bold"), bg="#ECDADD")
+        self.emergency_name_label.grid(row=13, column=0, padx=5, pady=10)
+        self.entry_emergency_name = tk.Entry(self.user_information_window)
+        self.entry_emergency_name.grid(row=13, column=1)
+        self.contact_name = tk.Label(self.user_information_window, text="(First Name/Second Name/Last Name)", bg="#ECDADD")
+        self.contact_name.grid(row=13, column=2, padx=5, pady=10)
+
 
 
         
