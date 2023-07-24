@@ -14,6 +14,7 @@ class TracingForm():
         self.sex()
         self.address()
         self.contact_number()
+        self.email_adress()
 
     
     def name(self):
@@ -71,3 +72,9 @@ class TracingForm():
         self.contact_number_label.grid(row=4, column=0, padx=5, pady=10)
         self.entry_contact_number = tk.Entry(self.user_information_window)
         self.entry_contact_number.grid(row=4, column=1)
+
+    def email_adress(self):
+        self.email = tk.Label(self.user_information_window, text="Email Address:", font=("Arial", 9, "bold"), bg="#ECDADD")
+        self.email.grid(row=5, column=0, padx=5, pady=10)
+        self.entry_email = tk.Entry(self.user_information_window)
+        self.entry_email.grid(row=5, column=1)
