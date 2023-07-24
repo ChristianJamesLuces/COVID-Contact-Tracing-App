@@ -22,6 +22,7 @@ class TracingForm():
         self.close_contact()
         self.symptoms()
         self.emergency_name()
+        self.emergency_number()
 
     #Get name
     def name(self):
@@ -210,6 +211,13 @@ class TracingForm():
         self.entry_emergency_name.grid(row=13, column=1)
         self.contact_name = tk.Label(self.user_information_window, text="(First Name/Second Name/Last Name)", bg="#ECDADD")
         self.contact_name.grid(row=13, column=2, padx=5, pady=10)
+    
+    #Get contact number of emergency contact
+    def emergency_number(self):
+        self.emergency_number_label = tk.Label(self.user_information_window, text="Emergency Contact Phone Number (09...): ", font=("Arial", 9, "bold"), bg="#ECDADD")
+        self.emergency_number_label.grid(row=14, column=0, padx=5, pady=10)
+        self.entry_emergency_number = tk.Entry(self.user_information_window)
+        self.entry_emergency_number.grid(row=14, column=1)
 
 
 
