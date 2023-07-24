@@ -45,6 +45,7 @@ class UserInterface:
         tracing_form = TracingForm()
         contact_button = Button(main_window, text="Contact Form", fg="blue", command=tracing_form.user_information, font=("Times New Roman", 14) )
         contact_button.place(x=80, y=120)
+    
 
 
 

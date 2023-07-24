@@ -12,6 +12,8 @@ class TracingForm():
         self.name()
         self.age()
         self.sex()
+        self.address()
+        self.contact_number()
 
     
     def name(self):
@@ -44,3 +46,28 @@ class TracingForm():
         
         self.sex_box = ttk.Combobox(self.user_information_window, values= ["Male", "Female", "Intersex"], width=8)
         self.sex_box.grid(row=2, column=1, padx=5, pady=10)
+    
+    def address(self):
+        self.address_label = tk.Label(self.user_information_window, text="Address:", font=("Arial", 9, "bold"), bg="#ECDADD")
+        self.address_label.grid(row=3, column=0, padx=5, pady=10)
+        
+        self.house_number_street_village = tk.Label(self.user_information_window, text="House No./Street/Village:", bg="#ECDADD")
+        self.house_number_street_village.grid(row=3, column=1, padx=5, pady=10)
+        self.entry_house_number_street_village = tk.Entry(self.user_information_window)
+        self.entry_house_number_street_village.grid(row=3, column=2)
+        
+        self.barangay = tk.Label(self.user_information_window, text="Barangay:", bg="#ECDADD")
+        self.barangay.grid(row=3, column=3, padx=5, pady=10)
+        self.entry_barangay = tk.Entry(self.user_information_window)
+        self.entry_barangay.grid(row=3, column=4)
+        
+        self.city = tk.Label(self.user_information_window, text="City/Town:", bg="#ECDADD")
+        self.city.grid(row=3, column=5, padx=5, pady=10)
+        self.entry_city = tk.Entry(self.user_information_window)
+        self.entry_city.grid(row=3, column=6)
+
+    def contact_number(self):
+        self.contact_number_label = tk.Label(self.user_information_window, text="Contact No. (ex.09...):", font=("Arial", 9, "bold"), bg="#ECDADD")
+        self.contact_number_label.grid(row=4, column=0, padx=5, pady=10)
+        self.entry_contact_number = tk.Entry(self.user_information_window)
+        self.entry_contact_number.grid(row=4, column=1)
