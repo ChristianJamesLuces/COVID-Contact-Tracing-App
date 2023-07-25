@@ -3,7 +3,7 @@
 #Import necessary modules
 from tkinter import *
 from tracing_form import TracingForm
-
+from file_operations import FileHandling
 
 
 
@@ -50,7 +50,8 @@ class UserInterface:
 
     #Create a Search button
     def search(self, main_window):
-        search_button = Button(main_window, text="Search Contact", fg="blue", font=("Times New Roman", 14))
+        file_handler = FileHandling()
+        search_button = Button(main_window, text="Search Contact", fg="blue", command=lambda: file_handler.search_window(), font=("Times New Roman", 14))
         search_button.place(x=80, y=200)
     
 
