@@ -38,6 +38,7 @@ class UserInterface:
         label.place(x=80, y=20)
 
         self.contact_form(main_window)
+        self.search(main_window)
 
         main_window.mainloop()
 
@@ -46,6 +47,11 @@ class UserInterface:
         tracing_form = TracingForm()
         contact_button = Button(main_window, text="Contact Form", fg="blue", command=lambda: tracing_form.user_information(), font=("Times New Roman", 14) )
         contact_button.place(x=80, y=120)
+
+    #Create a Search button
+    def search(self, main_window):
+        search_button = Button(main_window, text="Search Contact", fg="blue", font=("Times New Roman", 14))
+        search_button.place(x=80, y=200)
     
 
 

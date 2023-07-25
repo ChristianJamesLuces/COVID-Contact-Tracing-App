@@ -288,6 +288,9 @@ class TracingForm():
 
             messagebox.showinfo("Success", "Contact information saved successfully.")
 
+    #Find the data
+    #def search_data(self):
+
 
 
         
