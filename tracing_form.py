@@ -150,50 +150,11 @@ class TracingForm():
         self.symptoms_label = tk.Label(self.user_information_window, text="Experiencing symptoms in the past 7 days?", font=("Arial", 9, "bold"), bg="#ECDADD")
         self.symptoms_label.grid(row=11, column=0, padx=5, pady=10)
         
-        self.fever_check = tk.StringVar()
-        self.fever = tk.Checkbutton(self.user_information_window, text="Fever", variable=self.fever_check, onvalue="Yes", offvalue="No", bg="#ECDADD")
-        self.fever.grid(row=11, column=1)
-        
-        self.cough_check = tk.StringVar()
-        self.cough = tk.Checkbutton(self.user_information_window, text="Cough", variable=self.cough_check, onvalue="Yes", offvalue="No", bg="#ECDADD")
-        self.cough.grid(row=11, column=2)
-        
-        self.muscle_check = tk.StringVar()
-        self.muscle_body_pains = tk.Checkbutton(self.user_information_window, text="Muscle/body pains", variable=self.muscle_check, onvalue="Yes", offvalue="No", bg="#ECDADD")
-        self.muscle_body_pains.grid(row=11, column=3)
-        
-        self.sore_check = tk.StringVar()
-        self.sore_throat = tk.Checkbutton(self.user_information_window, text="Soar throat", variable=self.sore_check, onvalue="Yes", offvalue="No", bg="#ECDADD")
-        self.sore_throat.grid(row=11, column=4)
-        
-        self.diarrhea_check = tk.StringVar()
-        self.diarrhea = tk.Checkbutton(self.user_information_window, text="Diarrhea", variable=self.diarrhea_check, onvalue="Yes", offvalue="No", bg="#ECDADD")
-        self.diarrhea.grid(row=11, column=5)
-        
-        self.headache_check = tk.StringVar()
-        self.headache = tk.Checkbutton(self.user_information_window, text="Headache", variable=self.headache_check, onvalue="Yes", offvalue="No", bg="#ECDADD")
-        self.headache.grid(row=11, column=6)
-        
-        self.shortness_breath_check = tk.StringVar()
-        self.shortness_of_breath = tk.Checkbutton(self.user_information_window, text="Shortness of breath", variable=self.shortness_breath_check, onvalue="Yes", offvalue="No", bg="#ECDADD")
-        self.shortness_of_breath.grid(row=12, column=1)
-        
-        self.difficulty_breath_check = tk.StringVar()
-        self.difficulty_of_breathing = tk.Checkbutton(self.user_information_window, text="Difficulty of breathing", variable=self.difficulty_breath_check, onvalue="Yes", offvalue="No", bg="#ECDADD")
-        self.difficulty_of_breathing.grid(row=12, column=2)
-        
-        self.taste_check = tk.StringVar()
-        self.loss_of_taste = tk.Checkbutton(self.user_information_window, text="Loss of taste", variable=self.taste_check, onvalue="Yes", offvalue="No", bg="#ECDADD")
-        self.loss_of_taste.grid(row=12, column=3)
-        
-        self.smell_check = tk.StringVar()
-        self.loss_of_smell = tk.Checkbutton(self.user_information_window, text="Loss of smell", variable=self.smell_check, onvalue="Yes", offvalue="No", bg="#ECDADD")
-        self.loss_of_smell.grid(row=12, column=4)
-        
-        self.none_check = tk.StringVar()
-        self.none_of_the_above = tk.Checkbutton(self.user_information_window, text="None of the above", variable=self.none_check, onvalue="Yes", offvalue="No", bg="#ECDADD")
-        self.none_of_the_above.grid(row=12, column=5)
-    
+        self.symptoms_label = tk.Label(self.user_information_window, text="Symptoms: fever, cough, or other flu like symptoms", font=("Arial", 9, "bold"), bg="#ECDADD")
+        self.symptoms_label.grid(row=11, column=1, padx=5, pady=10)
+
+        self.symptoms_box = ttk.Combobox(self.user_information_window, values=["No", "Yes"])
+        self.close_contact_box.grid(row=11, column=2, padx=5, pady=10)
     #Get name of emergency contact
     
         self.emergency_name_label = tk.Label(self.user_information_window, text="Emergency Contact's Name: ", font=("Arial", 9, "bold"), bg="#ECDADD")
@@ -221,78 +182,64 @@ class TracingForm():
         self.submit_button = tk.Button(self.user_information_window, text="Submit", fg="green", font=("Time", 11, "bold"), command=self.submit_contacts)
         self.submit_button.place(x=1150, y=600)
 
-        self.user_information_window.destroy()
-
     #Saving the user's data
     def submit_contacts(self):
-        first_name = self.entry_first_name.get()
-        second_name = self.entry_second_name.get()
-        last_name =  self.entry_last_name.get()
+        first_name = self.entry_first_name.get().lower()
+        second_name = self.entry_second_name.get().lower()
+        last_name =  self.entry_last_name.get().lower()
         age = self.entry_age.get()
-        sex = self.sex_box.get()
+        sex = self.sex_box.get().lower()
         address = {
-            "House_No_Street_Village": self.entry_house_number_street_village.get(),
-            "Barangay": self.entry_barangay.get(),
-            "City/Town": self.entry_city.get(),
+            "House_No_Street_Village": self.entry_house_number_street_village.get().lower(),
+            "Barangay": self.entry_barangay.get().lower(),
+            "City/Town": self.entry_city.get().lower(),
         }
         contact_number = self.entry_contact_number.get()
         email = self.entry_email.get()
         visited_recently = {
-            "House_No_Street_Village": self.entry_last_house_number_street_village.get(),
-            "Barangay": self.entry_last_barangay.get(),
-            "City": self.entry_last_city.get(),
-            "Date": f"{self.entry_month.get()}/{self.entry_day.get()}/{self.entry_year.get()}",
+            "House_No_Street_Village": self.entry_last_house_number_street_village.get().lower(),
+            "Barangay": self.entry_last_barangay.get().lower(),
+            "City": self.entry_last_city.get().lower(),
         }
-        vaccine_status = self.vaccine_box.get()
-        test_result = self.covid_box.get()
-        close_contact = self.close_contact_box.get()
-        symptoms_value = {
-            "Fever": self.fever_check.get(),
-            "Cough": self.cough_check.get(),
-            "Muscle/body pains": self.muscle_check.get(),
-            "Soar throat": self.sore_check.get(),
-            "Diarrhea": self.diarrhea_check.get(),
-            "Headache": self.headache_check.get(),
-            "Shortness of breath": self.shortness_breath_check.get(),
-            "Difficulty of breathing": self.difficulty_breath_check.get(),
-            "Loss of taste": self.taste_check.get(),
-            "Loss of smell": self.smell_check.get(),
-            "None of the above": self.none_check.get(),
-        }
+        date_of_visit= {"Date": f"{self.entry_month.get()}/{self.entry_day.get()}/{self.entry_year.get()}"}
+        vaccine_status = self.vaccine_box.get().lower()
+        test_result = self.covid_box.get().lower()
+        close_contact = self.close_contact_box.get().lower()
+        symptoms_value = self.symptoms_box.get().lower()
 
-        emergency_name =  self.entry_emergency_name.get()
+        emergency_name =  self.entry_emergency_name.get().lower()
         emergency_number =  self.entry_emergency_number.get()
         emergency_email = self.entry_emergency_email.get()
 
-        # Check if any required fields are empty
-        required_fields = [first_name, last_name, age, sex, address["House_No_Street_Village"],
-                           address["Barangay"], address["City/Town"], contact_number, email,
-                           emergency_name, emergency_number, emergency_email]
-        
-        has_empty_fields = any(not field for field in required_fields)
+         # Prepare data for writing to CSV
+        user_data = [
+            first_name,
+            second_name,
+            last_name,
+            age,
+            sex,
+            f"{address['House_No_Street_Village']}, {address['Barangay']}, {address['City/Town']}",
+            contact_number,
+            email,
+            f"{visited_recently['House_No_Street_Village']}, {visited_recently['Barangay']}, {visited_recently['City']}",
+            date_of_visit,
+            vaccine_status,
+            test_result,
+            close_contact,
+            symptoms_value,
+            emergency_name,
+            emergency_number,
+            emergency_email,
 
-        if has_empty_fields:
-            messagebox.showerror("Error", "Please fill in all the required information.")
-        else:
-            # Create a single line of data in CSV format
-            contact_data = f"Name: {last_name.lower()}, {first_name.lower()}, {second_name.lower()} Sex: {sex.lower()} Age: {age.lower()} " \
-                        f"Address: {address['House_No_Street_Village'].lower()}, {address['Barangay'].lower()}, {address['City/Town'].lower()} " \
-                        f"Phone Number: {contact_number} Email: {email} " \
-                        f"Visited Recently:{visited_recently['House_No_Street_Village'].lower()}, {visited_recently['Barangay'].lower()}, {visited_recently['City/Town'].lower()}" \
-                        f"Contact Person: {emergency_name.lower()} Phone Number: {emergency_number} " \
-                        f"Email: {emergency_email} " \
-                        f"Vaccination Status: {vaccine_status} Symptoms: {symptoms_value.lower()} " \
-                        f"Exposed to a probable case: {close_contact.lower()} Has Contact (to a probable case): {test_result.lower()}"
-            
-            # Save data to a CSV file
-            with open("user_database/contact_list.csv", mode="a", newline="", encoding="utf-8") as file:
-                writer = csv.writer(file)
-                writer.writerow(contact_data)
+        ]
 
-            messagebox.showinfo("Success", "Contact information saved successfully.")
+        # Write data to contact_list.csv
+        with open('contact_list.csv', 'a', newline='') as file:
+            writer = csv.writer(file)
+            writer.writerow(user_data)
 
+        # Close the user_information_window after submitting
+        self.user_information_window.quit()
 
-
-
-
-        
+        # Show a message box to inform the user that their data has been saved
+        messagebox.showinfo("Data Saved", "Your contact information has been successfully saved.")
