@@ -282,14 +282,13 @@ class TracingForm():
                         f"Exposed to a probable case: {close_contact} Has Contact (to a probable case): {test_result}"
             
             # Save data to a CSV file
-            with open("user_database.csv", mode="a", newline="", encoding="utf-8") as file:
+            with open("contact_list.csv", mode="a", newline="", encoding="utf-8") as file:
                 writer = csv.writer(file)
                 writer.writerow([contact_data])
 
             messagebox.showinfo("Success", "Contact information saved successfully.")
 
-    #Find the data
-    #def search_data(self):
+
 
 
 
