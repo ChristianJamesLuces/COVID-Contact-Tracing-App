@@ -11,7 +11,7 @@ class TracingForm():
     def user_information(self):
         self.user_information_window = tk.Tk()
         self.user_information_window.title("Personal Data")
-        self.user_information_window.geometry("1250x650")
+        self.user_information_window.geometry("1350x650")
         self.user_information_window.config(bg="#ECDADD")
         self.user_information_window.resizable(False,False)
 
@@ -166,7 +166,7 @@ class TracingForm():
 
     
         self.submit_button = tk.Button(self.user_information_window, text="Submit", fg="green", font=("Time", 11, "bold"), command=self.submit_contacts)
-        self.submit_button.place(x=1150, y=600)
+        self.submit_button.place(x=1250, y=600)
 
     #Saving the user's data
     def submit_contacts(self):
