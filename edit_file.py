@@ -9,23 +9,23 @@ import csv
 class FileHandler():
     #Create a search window
     def search_window(self):
-        search_window = tk.Tk()
-        search_window.title("Search Contact - CoviCompanion")
-        search_window.geometry("400x100")
+        self.first_search_window = tk.Tk()
+        self.first_search_window.title("Search Contact - CoviCompanion")
+        self.first_search_window.geometry("400x100")
 
-        search_label = tk.Label(search_window, text="Enter the First Name to search:", font=("Arial", 12, "bold"))
+        search_label = tk.Label(self.first_search_window, text="Enter the First Name to search:", font=("Arial", 12, "bold"))
         search_label.pack()
 
-        self.search_entry = tk.Entry(search_window, font=("Arial", 12))
+        self.search_entry = tk.Entry(self.first_search_window, font=("Arial", 12))
         self.search_entry.place(x=100, y=40)
-        self.search_button(search_window)
+        self.search_button(self.first_search_window)
 
     #Create a search button
-    def search_button(self, search_window):
-        search_button = tk.Button(search_window, text="Search", command=self.search_contact)
+    def search_button(self, first_search_window):
+        search_button = tk.Button(self.first_search_window, text="Search", command=self.search_contact)
         search_button.place(x=50, y=40)
 
-        self.result_label = tk.Label(search_window, text="", font=("Arial", 12))
+        self.result_label = tk.Label(self.first_search_window, text="", font=("Arial", 12))
         self.result_label.place(x=100, y=70)
     
     #Search the data
@@ -112,7 +112,14 @@ class FileHandler():
         with open("contact_list.csv", "w", newline="") as file:
             writer = csv.writer(file)
             writer.writerows(rows)
+        
+        # Display a message after successful removal
+        messagebox.showinfo("Success", "Data removed successfully.")
 
+        # Close the result window after removing data
+        self.result_window.destroy()
+        self.first_search_window.destroy()
+        
     # Edit the specified data
     def edit_data(self, data_row):
         self.edit_window = tk.Toplevel()
