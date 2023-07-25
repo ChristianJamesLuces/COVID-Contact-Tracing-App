@@ -26,7 +26,7 @@ class FileHandler():
         search_button.place(x=50, y=40)
 
         self.result_label = tk.Label(search_window, text="", font=("Arial", 12))
-        self.result_label.place(x=50, y=40)
+        self.result_label.place(x=100, y=70)
     
     #Search the data
     def search_contact(self):
