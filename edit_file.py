@@ -13,15 +13,15 @@ class FileHandler():
         self.first_search_window.title("Search Contact - CoviCompanion")
         self.first_search_window.geometry("400x100")
 
-        search_label = tk.Label(self.first_search_window, text="Enter the First Name to search:", font=("Arial", 12, "bold"))
+        search_label = tk.Label(self.first_search_window, text="Enter the First Name/Full Name to search:", font=("Arial", 12, "bold"))
         search_label.pack()
 
         self.search_entry = tk.Entry(self.first_search_window, font=("Arial", 12))
         self.search_entry.place(x=100, y=40)
-        self.search_button(self.first_search_window)
+        self.search_button()
 
     #Create a search button
-    def search_button(self, first_search_window):
+    def search_button(self):
         search_button = tk.Button(self.first_search_window, text="Search", command=self.search_contact)
         search_button.place(x=50, y=40)
 
