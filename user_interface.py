@@ -57,7 +57,12 @@ class UserInterface:
     #Create a Contact Form button
     def contact_form(self, main_window):
         tracing_form = TracingForm()
-        contact_button = tk.Button(main_window, text="Contact Form", fg="blue", command=lambda: tracing_form.user_information(), font=("Times New Roman", 14) )
+        contact_image = Image.open("contact_form.png")
+        resize_image = contact_image.resize((90, 30), Image.ANTIALIAS)
+
+        contact_image_button = ImageTk.PhotoImage(resize_image)
+        contact_button = tk.Button(main_window, image=contact_image_button, command=lambda: tracing_form.user_information(), borderwidth=1 )
+        contact_button.image = contact_image_button
         contact_button.place(x=80, y=120)
 
     def search_data(self, main_window):
