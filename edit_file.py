@@ -119,7 +119,7 @@ class FileHandler():
         # Close the result window after removing data
         self.result_window.destroy()
         self.first_search_window.destroy()
-        
+
     # Edit the specified data
     def edit_data(self, data_row):
         self.edit_window = tk.Toplevel()
@@ -256,3 +256,4 @@ class FileHandler():
         messagebox.showinfo("Success", "Data edited successfully.")
         self.edit_window.destroy()
         self.result_window.destroy()
+        self.first_search_window.destroy()

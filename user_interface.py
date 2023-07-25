@@ -21,8 +21,8 @@ class UserInterface:
             introduction_label = tk.Label(self.window, text=introduction_text, fg="black", font=("Arial", 12, ))
             introduction_label.pack()
 
-            proceed_button = tk.Button(self.window, text="Proceed to Main Window", command=self.main_window, fg="#2F0909", font=("Arial", 12, "bold"))
-            proceed_button.place(x=575, y=130)
+            proceed_button = tk.Button(self.window, text="Proceed", command=self.main_window, fg="#2F0909", font=("Arial", 12, "bold"))
+            proceed_button.place(x=700, y=130)
 
         self.window.mainloop()
     
