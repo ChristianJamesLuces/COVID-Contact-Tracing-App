@@ -51,15 +51,16 @@ class FileHandler():
 
      # Show the search results in a new window
     def show_search_results(self, data):
-        result_window = tk.Toplevel()
-        result_window.title("Search Results - CoviCompanion")
-        result_window.geometry("800x400")
+        self.result_window = tk.Toplevel()
+        self.result_window.title("Search Results - CoviCompanion")
+        self.result_window.geometry("800x400")
+        self.result_window.resizable(False,False)
 
-        result_label = tk.Label(result_window, text="Search Results:", font=("Arial", 15, "bold"))
+        result_label = tk.Label(self.result_window, text="Search Results:", font=("Arial", 15, "bold"))
         result_label.pack()
 
         # Create a scrolled text widget for displaying search results
-        scroll_text = scrolledtext.ScrolledText(result_window, wrap=tk.WORD, width=100, height=20)
+        scroll_text = scrolledtext.ScrolledText(self.result_window, wrap=tk.WORD, width=100, height=20)
         scroll_text.pack()
 
         # Display the search results in the specified format
@@ -87,17 +88,17 @@ class FileHandler():
                                       f"Emergency Contact Email Address: {emergency_email}\n\n")
             
             # Add Edit button for each row
-            edit_button = tk.Button(result_window, text="Edit", command=lambda r=row: self.edit_data(r), font=("Time", 12, "bold") , fg="green")
+            edit_button = tk.Button(self.result_window, text="Edit", command=lambda r=row: self.edit_data(r), font=("Time", 12, "bold") , fg="green")
             edit_button.place(x=750, y=362)
 
             # Add Remove button for each row
-            remove_button = tk.Button(result_window, text="Remove", command=lambda r=row: self.remove_data(r),  font=("Time", 12, "bold"), fg="red")
+            remove_button = tk.Button(self.result_window, text="Remove", command=lambda r=row: self.remove_data(r),  font=("Time", 12, "bold"), fg="red")
             remove_button.place(x=20, y=362)
 
         # Disable editing in the scrolled text widget
         scroll_text.configure(state='disabled')
 
-        result_window.mainloop()
+        self.result_window.mainloop()
     
     # Remove the data 
     def remove_data(self, data_row):
@@ -247,3 +248,4 @@ class FileHandler():
         # Close the edit window after saving
         messagebox.showinfo("Success", "Data edited successfully.")
         self.edit_window.destroy()
+        self.result_window.destroy()
