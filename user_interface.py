@@ -46,7 +46,7 @@ class UserInterface:
 
         
 
-        label = tk.Label(main_window, text = "Welcome to CoviCompanion", fg="white", font=("Arial", 15, "bold"))
+        label = tk.Label(main_window, text = "Welcome to CoviCompanion", fg="white",bg="#2F0909", font=("Arial", 15, "bold"))
         label.place(x=20, y=20)
 
         self.contact_form(main_window)

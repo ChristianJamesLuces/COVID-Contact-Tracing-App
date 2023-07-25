@@ -1,7 +1,6 @@
 
 import tkinter as tk
 from tkinter import scrolledtext
-from PIL import ImageTk, Image
 import csv
 
 
@@ -20,6 +19,7 @@ class FileHandler():
         self.search_entry.pack()
         self.search_button(search_window)
 
+    #Create a search button
     def search_button(self, search_window):
         search_button = tk.Button(search_window, text="Search", command=self.search_contact)
         search_button.pack()
@@ -27,7 +27,7 @@ class FileHandler():
         self.result_label = tk.Label(search_window, text="", font=("Arial", 12))
         self.result_label.pack()
     
-
+    #Search the data
     def search_contact(self):
         full_name = self.search_entry.get().strip().lower()
 
@@ -84,8 +84,28 @@ class FileHandler():
                                       f"Emergency Contact's Name: {emergency_name}\n"
                                       f"Emergency Contact Phone Number: {emergency_number}\n"
                                       f"Emergency Contact Email Address: {emergency_email}\n\n")
+            
+            # Add Remove button for each row
+            remove_button = tk.Button(result_window, text="Remove", command=lambda r=row: self.remove_data(r))
+            remove_button.pack()
 
         # Disable editing in the scrolled text widget
         scroll_text.configure(state='disabled')
 
         result_window.mainloop()
+    
+    # Remove the data 
+    def remove_data(self, data_row):
+        with open("contact_list.csv", "r", newline="") as file:
+            rows = [row for row in csv.reader(file)]
+
+        # Find the index of the data row in the CSV
+        index_to_remove = rows.index(data_row)
+
+        # Remove the row from the data list
+        del rows[index_to_remove]
+
+        # Write the updated data back to the CSV file
+        with open("contact_list.csv", "w", newline="") as file:
+            writer = csv.writer(file)
+            writer.writerows(rows)
