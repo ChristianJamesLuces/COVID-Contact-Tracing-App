@@ -224,8 +224,7 @@ class TracingForm():
             writer = csv.writer(file)
             writer.writerow(user_data)
 
-        # Close the user_information_window after submitting
-        self.user_information_window.quit()
-
         # Show a message box to inform the user that their data has been saved
         messagebox.showinfo("Data Saved", "Your contact information has been successfully saved.")
+
+        self.user_information_window.destroy()
