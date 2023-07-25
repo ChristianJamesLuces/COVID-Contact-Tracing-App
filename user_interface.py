@@ -58,7 +58,7 @@ class UserInterface:
     def contact_form(self, main_window):
         tracing_form = TracingForm()
         contact_image = Image.open("contact_form.png")
-        resize_image = contact_image.resize((90, 30), Image.ANTIALIAS)
+        resize_image = contact_image.resize((110, 50), Image.ANTIALIAS)
 
         contact_image_button = ImageTk.PhotoImage(resize_image)
         contact_button = tk.Button(main_window, image=contact_image_button, command=lambda: tracing_form.user_information(), borderwidth=1 )
@@ -67,5 +67,10 @@ class UserInterface:
 
     def search_data(self, main_window):
         file_handler = FileHandler()
-        finder_button = tk.Button(main_window, text="Search Contact", fg="blue", command=lambda: file_handler.search_window(), font=("Times New Roman", 14) )
-        finder_button.place(x=80, y=180)
+        search_image = Image.open("search_contact.png")
+        resize_image = search_image.resize((110, 50), Image.ANTIALIAS)
+
+        search_image_button = ImageTk.PhotoImage(resize_image)
+        finder_button = tk.Button(main_window, image=search_image_button, command=lambda: file_handler.search_window(), borderwidth=0)
+        finder_button.image = search_image_button
+        finder_button.place(x=80, y=230)

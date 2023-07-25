@@ -154,7 +154,7 @@ class TracingForm():
         self.symptoms_label.grid(row=11, column=1, padx=5, pady=10)
 
         self.symptoms_box = ttk.Combobox(self.user_information_window, values=["No", "Yes"])
-        self.close_contact_box.grid(row=11, column=2, padx=5, pady=10)
+        self.symptoms_box.grid(row=11, column=2, padx=5, pady=10)
     #Get name of emergency contact
     
         self.emergency_name_label = tk.Label(self.user_information_window, text="Emergency Contact's Name: ", font=("Arial", 9, "bold"), bg="#ECDADD")
