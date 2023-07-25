@@ -15,8 +15,7 @@ class TracingForm():
         self.user_information_window.config(bg="#ECDADD")
         self.user_information_window.resizable(False,False)
 
-    #Get name
-    
+        #Get name
         self.first_name = tk.Label(self.user_information_window, text="First Name: ", font=("Arial", 9, "bold"), bg="#ECDADD")
         self.first_name.grid(row=0, column=0, padx=5, pady=10)
         self.entry_first_name = tk.Entry(self.user_information_window)
@@ -32,23 +31,20 @@ class TracingForm():
         self.entry_last_name = tk.Entry(self.user_information_window)
         self.entry_last_name.grid(row=0, column=5)
     
-    #Get age 
-    
+        #Get age 
         self.age_label = tk.Label(self.user_information_window, text="Age (yrs. old):", font=("Arial", 9, "bold"), bg="#ECDADD")
         self.age_label.grid(row=1, column=0, padx=5, pady=10)
         self.entry_age = tk.Entry(self.user_information_window)
         self.entry_age.grid(row=1, column=1)
     
-    #Get sex
-    
+        #Get sex
         self.sex_label = tk.Label(self.user_information_window, text="Sex:", font=("Arial", 9, "bold"), bg="#ECDADD")
         self.sex_label.grid(row=2, column=0, padx=5, pady=10)
         
         self.sex_box = ttk.Combobox(self.user_information_window, values= ["Male", "Female", "Intersex"], width=8)
         self.sex_box.grid(row=2, column=1, padx=5, pady=10)
     
-    #Get adress
-    
+        #Get adress
         self.address_label = tk.Label(self.user_information_window, text="Address:", font=("Arial", 9, "bold"), bg="#ECDADD")
         self.address_label.grid(row=3, column=0, padx=5, pady=10)
         
@@ -67,22 +63,19 @@ class TracingForm():
         self.entry_city = tk.Entry(self.user_information_window)
         self.entry_city.grid(row=3, column=6)
 
-    #Get contact number
-    
+        #Get contact number
         self.contact_number_label = tk.Label(self.user_information_window, text="Contact No. (ex.09...):", font=("Arial", 9, "bold"), bg="#ECDADD")
         self.contact_number_label.grid(row=4, column=0, padx=5, pady=10)
         self.entry_contact_number = tk.Entry(self.user_information_window)
         self.entry_contact_number.grid(row=4, column=1)
 
-    #Get email adress
-    
+        #Get email adress
         self.email_label = tk.Label(self.user_information_window, text="Email Address:", font=("Arial", 9, "bold"), bg="#ECDADD")
         self.email_label.grid(row=5, column=0, padx=5, pady=10)
         self.entry_email = tk.Entry(self.user_information_window)
         self.entry_email.grid(row=5, column=1)
     
-    #Get last location
-    
+        #Get last location
         self.location_label = tk.Label(self.user_information_window, text="Last Visited Place:", font=("Arial", 9, "bold"), bg="#ECDADD")
         self.location_label.grid(row=6, column=0, padx=5, pady=10)
         
@@ -101,8 +94,7 @@ class TracingForm():
         self.entry_last_city = tk.Entry(self.user_information_window)
         self.entry_last_city.grid(row=6, column=6)
 
-    #Get date for that last place visited
-    
+        #Get date for that last place visited
         self.date_label = tk.Label(self.user_information_window, text="Date of visit:", font=("Arial", 9, "bold"), bg="#ECDADD")
         self.date_label.grid(row=7, column=0, padx=5, pady=10)
         
@@ -121,32 +113,28 @@ class TracingForm():
         self.entry_year= tk.Spinbox(self.user_information_window, from_=2019, to=2023)
         self.entry_year.grid(row=7, column=6, padx=5, pady=10)
     
-    #Get vaccine status
-    
+        #Get vaccine status
         self.vaccine_status_label = tk.Label(self.user_information_window, text="COVID-19 Vaccination Status:", font=("Arial", 9, "bold"), bg="#ECDADD")
         self.vaccine_status_label.grid(row=8, column=0, padx=5, pady=10)
 
         self.vaccine_box = ttk.Combobox(self.user_information_window, values= ["Not Yet", "1st Dose", "2nd Dose", "1st Booster Shot", "2nd Booster Shot"])
         self.vaccine_box.grid(row=8, column=1, padx=5, pady=10)
     
-    #Get COVID-19 test result
-    
+        #Get COVID-19 test result
         self.covid_result_label = tk.Label(self.user_information_window, text="COVID-19 Test Result:", font=("Arial", 9, "bold"), bg="#ECDADD")
         self.covid_result_label.grid(row=9, column=0, padx=5, pady=10)
 
         self.covid_box = ttk.Combobox(self.user_information_window, values=["No", "Yes-Positive", "Yes-Negative", "Yes-Pending"])
         self.covid_box.grid(row=9, column=1, padx=5, pady=10)
     
-    #Get if the user has close contact
-    
+        #Get if the user has close contact
         self.close_contact_label = tk.Label(self.user_information_window, text="Exposed to COVID-19 in the last 14 days?", font=("Arial", 9, "bold"), bg="#ECDADD")
         self.close_contact_label.grid(row=10, column=0, padx=5, pady=10)
 
         self.close_contact_box = ttk.Combobox(self.user_information_window, values=["No", "Yes"])
         self.close_contact_box.grid(row=10, column=1, padx=5, pady=10)
 
-    #Get symptoms
-    
+        #Get symptoms
         self.symptoms_label = tk.Label(self.user_information_window, text="Experiencing symptoms in the past 7 days?", font=("Arial", 9, "bold"), bg="#ECDADD")
         self.symptoms_label.grid(row=11, column=0, padx=5, pady=10)
         
@@ -155,8 +143,8 @@ class TracingForm():
 
         self.symptoms_box = ttk.Combobox(self.user_information_window, values=["No", "Yes"])
         self.symptoms_box.grid(row=11, column=2, padx=5, pady=10)
-    #Get name of emergency contact
-    
+        
+        #Get name of emergency contact
         self.emergency_name_label = tk.Label(self.user_information_window, text="Emergency Contact's Name: ", font=("Arial", 9, "bold"), bg="#ECDADD")
         self.emergency_name_label.grid(row=13, column=0, padx=5, pady=10)
         self.entry_emergency_name = tk.Entry(self.user_information_window)
@@ -164,15 +152,13 @@ class TracingForm():
         self.contact_name = tk.Label(self.user_information_window, text="(First Name/Second Name/Last Name)", bg="#ECDADD")
         self.contact_name.grid(row=13, column=2, padx=5, pady=10)
     
-    #Get contact number of emergency contact
-  
+        #Get contact number of emergency contact
         self.emergency_number_label = tk.Label(self.user_information_window, text="Emergency Contact Phone Number (09...): ", font=("Arial", 9, "bold"), bg="#ECDADD")
         self.emergency_number_label.grid(row=14, column=0, padx=5, pady=10)
         self.entry_emergency_number = tk.Entry(self.user_information_window)
         self.entry_emergency_number.grid(row=14, column=1)
 
-    #Get email address of emergency contact
-    
+        #Get email address of emergency contact
         self.emergency_email_label = tk.Label(self.user_information_window, text="Emergency Contact Email Address: ", font=("Arial", 9, "bold"), bg="#ECDADD")
         self.emergency_email_label.grid(row=15, column=0, padx=5, pady=10)
         self.entry_emergency_email = tk.Entry(self.user_information_window)
