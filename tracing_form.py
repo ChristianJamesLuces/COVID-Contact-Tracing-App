@@ -221,13 +221,15 @@ class TracingForm():
         self.submit_button = tk.Button(self.user_information_window, text="Submit", fg="green", font=("Time", 11, "bold"), command=self.submit_contacts)
         self.submit_button.place(x=1150, y=600)
 
+        self.user_information_window.destroy()
+
     #Saving the user's data
     def submit_contacts(self):
         first_name = self.entry_first_name.get()
         second_name = self.entry_second_name.get()
         last_name =  self.entry_last_name.get()
         age = self.entry_age.get()
-        sex = self.sex_box.get
+        sex = self.sex_box.get()
         address = {
             "House_No_Street_Village": self.entry_house_number_street_village.get(),
             "Barangay": self.entry_barangay.get(),
@@ -273,18 +275,19 @@ class TracingForm():
             messagebox.showerror("Error", "Please fill in all the required information.")
         else:
             # Create a single line of data in CSV format
-            contact_data = f"Name: {last_name}, {first_name}, {second_name} Gender: {sex} Age: {age} " \
-                        f"Address: {address['House_No_Street_Village']}, {address['Barangay']}, {address['City/Town']} " \
+            contact_data = f"Name: {last_name.lower()}, {first_name.lower()}, {second_name.lower()} Sex: {sex.lower()} Age: {age.lower()} " \
+                        f"Address: {address['House_No_Street_Village'].lower()}, {address['Barangay'].lower()}, {address['City/Town'].lower()} " \
                         f"Phone Number: {contact_number} Email: {email} " \
-                        f"Contact Person: {emergency_name} Phone Number: {emergency_number} " \
+                        f"Visited Recently:{visited_recently['House_No_Street_Village'].lower()}, {visited_recently['Barangay'].lower()}, {visited_recently['City/Town'].lower()}" \
+                        f"Contact Person: {emergency_name.lower()} Phone Number: {emergency_number} " \
                         f"Email: {emergency_email} " \
-                        f"Vaccination Status: {vaccine_status} Symptoms: {', '.join(symptoms_value[key] for key in symptoms_value if symptoms_value[key])} " \
-                        f"Exposed to a probable case: {close_contact} Has Contact (to a probable case): {test_result}"
+                        f"Vaccination Status: {vaccine_status} Symptoms: {symptoms_value.lower()} " \
+                        f"Exposed to a probable case: {close_contact.lower()} Has Contact (to a probable case): {test_result.lower()}"
             
             # Save data to a CSV file
-            with open("contact_list.csv", mode="a", newline="", encoding="utf-8") as file:
+            with open("user_database/contact_list.csv", mode="a", newline="", encoding="utf-8") as file:
                 writer = csv.writer(file)
-                writer.writerow([contact_data])
+                writer.writerow(contact_data)
 
             messagebox.showinfo("Success", "Contact information saved successfully.")
 

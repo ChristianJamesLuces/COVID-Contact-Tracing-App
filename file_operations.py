@@ -54,7 +54,7 @@ class FileHandling():
     def search_data(self):
         search_keyword = self.search_entry.get()
         results = []
-        with open("contact_list.csv", "r", newline="", encoding="utf-8") as file:
+        with open("user_database/contact_list.csv", "r", newline="", encoding="utf-8") as file:
             csv_reader = csv.reader(file)
             for row in csv_reader:
                 if search_keyword.lower() in " ".join(row).lower():
@@ -63,10 +63,10 @@ class FileHandling():
 
     #Saving the data if the user updates it
     def update(self, old_contact_data, new_contact_data):
-        with open("contact_list.csv", "r", newline="", encoding="utf-8") as file:
+        with open("user_database/contact_list.csv", "r", newline="", encoding="utf-8") as file:
             data = list(csv.reader(file))
 
-        with open("contact_list.csv", "w", newline="", encoding="utf-8") as file:
+        with open("user_database/contact_list.csv", "w", newline="", encoding="utf-8") as file:
             writer = csv.writer(file)
             updated = False
             for row in data:
@@ -84,10 +84,10 @@ class FileHandling():
 
     #Removing data 
     def remove(self, contact_data):
-        with open("user_database.csv", "r", newline="", encoding="utf-8") as file:
+        with open("user_database/contact_list.csv", "r", newline="", encoding="utf-8") as file:
             data = list(csv.reader(file))
 
-        with open("user_database.csv", "w", newline="", encoding="utf-8") as file:
+        with open("user_database/contact_list.csv", "w", newline="", encoding="utf-8") as file:
             writer = csv.writer(file)
             removed = False
             for row in data:
